@@ -8,201 +8,274 @@
     tools:context=".BasicCalculator">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textStyle="bold|italic"
-        android:textSize="30sp"
         android:background="@color/yellow"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textStyle="bold|italic"
-        android:textSize="45sp"
-        android:background="@color/white"
         android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buttonNumberOne" />
-
-    <Button
-        android:id="@+id/buttonNumberOne"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="126dp"
-        android:text="@string/number_one"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <Button
-        android:id="@+id/buttonNumberTwo"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="126dp"
-        android:text="@string/number_two"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonNumberOne"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonNumberThree"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="126dp"
-        android:text="@string/number_three"
-        android:textSize="50sp"
-        android:textStyle="bold"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvResult"
+        style="@style/tvResult"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="end|center"
+        android:paddingEnd="10dp"
+        android:layout_marginBottom="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonNumberTwo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonNumberFour"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/number_four"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/buttonNumberFive"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNumberOne" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/llMainLayout"
+        app:layout_constraintTop_toTopOf="@id/llMainLayout"/>
 
-    <Button
-        android:id="@+id/buttonNumberFive"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/number_five"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonNumberFour"
-        app:layout_constraintTop_toBottomOf="@id/buttonNumberTwo" />
 
-    <Button
-        android:id="@+id/buttonNumberSix"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/number_six"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonNumberFive"
-        app:layout_constraintTop_toBottomOf="@id/buttonNumberThree" />
-
-    <Button
-        android:id="@+id/buttonNumberSeven"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/number_seven"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNumberFour" />
-
-    <Button
-        android:id="@+id/buttonNumberEight"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/number_eight"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonNumberSeven"
-        app:layout_constraintTop_toBottomOf="@id/buttonNumberFive" />
-
-    <Button
-        android:id="@+id/buttonNumberNine"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/number_nine"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonNumberEight"
-        app:layout_constraintTop_toBottomOf="@id/buttonNumberSix" />
-
-    <Button
-        android:id="@+id/buttonNumberZero"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/number_zero"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNumberSeven" />
-
-    <Button
-        android:id="@+id/buttonPlus"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="126dp"
-        android:text="@string/plus"
-        android:textSize="50sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/llMainLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonNumberThree"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult">
 
-    <Button
-        android:id="@+id/buttonMinus"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/minus"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonNumberSix"
-        app:layout_constraintTop_toBottomOf="@id/buttonPlus" />
+        <LinearLayout
+            android:id="@+id/llFirstLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
-    <Button
-        android:id="@+id/buttonMultiply"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/multiply"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonNumberNine"
-        app:layout_constraintTop_toBottomOf="@id/buttonMinus" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberOne"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_one" />
 
-    <Button
-        android:id="@+id/buttonDivide"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/divide"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonNumberNine"
-        app:layout_constraintTop_toBottomOf="@id/buttonMultiply" />
-    <Button
-        android:id="@+id/buttonEquals"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/equals"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/buttonPlus"
-        app:layout_constraintTop_toBottomOf="@id/tvResult" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberTwo"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_two" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberThree"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_three" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonEquals"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/equals" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSecondLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberFour"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_four" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberFive"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_five" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberSix"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_six"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonPlus"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/plus" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llThirdLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberSeven"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_seven" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberEight"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_eight" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberNine"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_nine" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonMinus"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/minus" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFourthLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonNumberZero"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/number_zero" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonPoint"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/point" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonDivide"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/divide" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonMultiply"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/multiply" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFifthLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonOpenCalculatorPro"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/open_calculator_pro" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonPercent"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/percent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonClear"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/clear" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:id="@+id/buttonClearAll"
+                style="@style/buttonNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/clear_all" />
+
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

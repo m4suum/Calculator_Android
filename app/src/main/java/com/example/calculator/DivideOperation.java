@@ -1,46 +1,46 @@
 package com.example.calculator;
 
 public class DivideOperation {
-    private Double firstNumber;
-    private Double secondNumber;
-    private Double resultNumber;
+    private float firstNumber;
+    private float secondNumber;
+    private float resultNumber;
 
 
-    public DivideOperation(Double firstNumber, Double secondNumber, Double resultNumber){
+    public DivideOperation(float firstNumber, float secondNumber, float resultNumber){
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.resultNumber = resultNumber;
     }
 
 
-    public Double getResultNumber() {
+    public float getResultNumber() {
         return resultNumber;
     }
 
-    public void setResultNumber(Double resultNumber) {
+    public void setResultNumber(float resultNumber) {
         this.resultNumber = resultNumber;
     }
 
-    public Double getFirstNumber() {
+    public float getFirstNumber() {
         return firstNumber;
     }
 
-    public void setFirstNumber(Double firstNumber) {
+    public void setFirstNumber(float firstNumber) {
         this.firstNumber = firstNumber;
     }
 
-    public Double getSecondNumber() {
+    public float getSecondNumber() {
         return secondNumber;
     }
 
-    public void setSecondNumber(Double secondNumber) {
+    public void setSecondNumber(float secondNumber) {
         this.secondNumber = secondNumber;
     }
 
-    public Double divide (Double firstNumber, Double secondNumber){
+    public float divide (float firstNumber, float secondNumber){
         resultNumber = firstNumber / secondNumber;
         if(secondNumber != 0)
             return resultNumber;
-        else return 3.14;
+        else return 3.1415f;
     }
 }

@@ -15,4 +15,9 @@
     <string name="multiply">*</string>
     <string name="divide">/</string>
     <string name="equals">=</string>
+    <string name="point">.</string>
+    <string name="open_calculator_pro">Pro</string>
+    <string name="percent">%</string>
+    <string name="clear">C</string>
+    <string name="clear_all">CA</string>
 </resources>

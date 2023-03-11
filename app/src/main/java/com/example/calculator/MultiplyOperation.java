@@ -1,43 +1,43 @@
 package com.example.calculator;
 
 public class MultiplyOperation {
-    private Double firstNumber;
-    private Double secondNumber;
-    private Double resultNumber;
+    private float firstNumber;
+    private float secondNumber;
+    private float resultNumber;
 
 
-    public MultiplyOperation(Double firstNumber, Double secondNumber, Double resultNumber) {
+    public MultiplyOperation(float firstNumber, float secondNumber, float resultNumber) {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.resultNumber = resultNumber;
     }
 
 
-    public Double getResultNumber() {
+    public float getResultNumber() {
         return resultNumber;
     }
 
-    public void setResultNumber(Double resultNumber) {
+    public void setResultNumber(float resultNumber) {
         this.resultNumber = resultNumber;
     }
 
-    public Double getFirstNumber() {
+    public float getFirstNumber() {
         return firstNumber;
     }
 
-    public void setFirstNumber(Double firstNumber) {
+    public void setFirstNumber(float firstNumber) {
         this.firstNumber = firstNumber;
     }
 
-    public Double getSecondNumber() {
+    public float getSecondNumber() {
         return secondNumber;
     }
 
-    public void setSecondNumber(Double secondNumber) {
+    public void setSecondNumber(float secondNumber) {
         this.secondNumber = secondNumber;
     }
 
-    public Double multiply(Double firstNumber, Double secondNumber) {
+    public float multiply(float firstNumber, float secondNumber) {
         resultNumber = firstNumber * secondNumber;
         return resultNumber;
     }

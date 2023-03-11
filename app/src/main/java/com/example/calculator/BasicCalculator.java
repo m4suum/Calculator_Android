@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class BasicCalculator extends AppCompatActivity {
-    private final String key = "NUM_PRO_MAIN";
-    private String firstNumber;
-    private String secondNumber;
-    private Double firstNum;
-    private Double secondNum;
     private String calculations;
-    private Button buttonEquals;
-    private Double resultNumber;
     private Button buttonNumberOne;
     private Button buttonNumberTwo;
     private Button buttonNumberThree;
@@ -30,12 +24,23 @@ public class BasicCalculator extends AppCompatActivity {
     private Button buttonMinus;
     private Button buttonMultiply;
     private Button buttonDivide;
+    private Button buttonEquals;
+    private Button buttonPoint;
+    private Button buttonOpenCalculatorPro;
+    private Button buttonPercent;
+    private Button buttonClear;
+    private Button buttonClearAll;
     private TextView tvResult;
+    private Calculator calculator;
+    private LineHandler lineHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_calculator);
+        lineHandler = new LineHandler(null, 0);
+        calculator = new Calculator(lineHandler);
         buttonNumberOne = findViewById(R.id.buttonNumberOne);
         buttonNumberTwo = findViewById(R.id.buttonNumberTwo);
         buttonNumberThree = findViewById(R.id.buttonNumberThree);
@@ -51,126 +56,128 @@ public class BasicCalculator extends AppCompatActivity {
         buttonMultiply = findViewById(R.id.buttonMultiply);
         buttonDivide = findViewById(R.id.buttonDivide);
         buttonEquals = findViewById(R.id.buttonEquals);
+        buttonPoint = findViewById(R.id.buttonPoint);
+        buttonOpenCalculatorPro = findViewById(R.id.buttonOpenCalculatorPro);
+        buttonPercent = findViewById(R.id.buttonPercent);
+        buttonClear = findViewById(R.id.buttonClear);
+        buttonClearAll = findViewById(R.id.buttonClearAll);
         tvResult = findViewById(R.id.tvResult);
         tvResult.setText("");
         calculations = "";
-        firstNumber = "";
-        secondNumber = "";
 
         buttonNumberOne.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "1";
-                    calculations += firstNumber;
+                    calculations += "1";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberTwo.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "2";
-                    calculations += firstNumber;
+                    calculations += "2";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberThree.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "3";
-                    calculations += firstNumber;
+                    calculations += "3";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberFour.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "4";
-                    calculations += firstNumber;
+                    calculations += "4";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberFive.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "5";
-                    calculations += firstNumber;
+                    calculations += "5";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberSix.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "6";
-                    calculations += firstNumber;
+                    calculations += "6";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberSeven.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "7";
-                    calculations += firstNumber;
+                    calculations += "7";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberEight.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "8";
-                    calculations += firstNumber;
+                    calculations += "8";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberNine.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "9";
-                    calculations += firstNumber;
+                    calculations += "9";
                     tvResult.setText(calculations);
                 }
         );
 
         buttonNumberZero.setOnClickListener(view -> {
-                    calculations = "";
-                    firstNumber += "0";
-                    calculations += firstNumber;
+                    calculations += "0";
                     tvResult.setText(calculations);
                 }
         );
-
-
 
 
         buttonPlus.setOnClickListener(view -> {
-                    firstNum = Double.valueOf(firstNumber);
                     calculations += " + ";
                     tvResult.setText(calculations);
-                    Intent intent = new Intent(this, PlusActivity.class);
-                    String value = firstNumber;
-                    intent.putExtra(key, value);
-                    startActivity(intent);
                 }
         );
 
+        buttonMinus.setOnClickListener(view -> {
+                    calculations += " - ";
+                    tvResult.setText(calculations);
+                }
+        );
 
+        buttonMultiply.setOnClickListener(view -> {
+                    calculations += " * ";
+                    tvResult.setText(calculations);
+                }
+        );
 
+        buttonDivide.setOnClickListener(view -> {
+                    calculations += " / ";
+                    tvResult.setText(calculations);
+                }
+        );
 
+        buttonPoint.setOnClickListener(view -> {
+                    calculations += ".";
+                    tvResult.setText(calculations);
+                }
+        );
 
+        buttonPercent.setOnClickListener(view -> {
+                    calculations += " % ";
+                    tvResult.setText(calculations);
+                }
+        );
 
+        buttonClear.setOnClickListener(view -> {
+                    calculations = calculations.substring(0, calculations.length() - 1);
+                    tvResult.setText(calculations);
+                }
+        );
 
-//        buttonMinus.setOnClickListener(view ->{
-//                    firstNumber = 1;
-//                }
-//        );
-//
-//        buttonMultiply.setOnClickListener(view ->{
-//                    firstNumber = 1;
-//                }
-//        );
-//
-//        buttonDivide.setOnClickListener(view ->{
-//                    firstNumber = 1;
-//                }
-//        );
+        buttonClearAll.setOnClickListener(view -> {
+                    calculations = "";
+                    tvResult.setText(calculations);
+                }
+        );
 
+        buttonEquals.setOnClickListener(view -> {
+                    calculations = String.valueOf(calculator.calculatorHandleLine(calculations));
+                    tvResult.setText(calculations);
+                }
+        );
     }
 }
