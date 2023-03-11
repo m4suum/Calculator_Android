@@ -1,40 +1,17 @@
 package com.example.calculator;
 
 public class PlusOperation {
-    private float firstNumber;
-    private float secondNumber;
-    private float resultNumber;
+    private static float resultNumber;
+    private static PlusOperation plusOperation;
 
-
-    public PlusOperation(float firstNumber, float secondNumber, float resultNumber) {
-        this.firstNumber = firstNumber;
-        this.secondNumber = secondNumber;
-        this.resultNumber = resultNumber;
+    private PlusOperation() {
     }
 
-
-    public float getResultNumber() {
-        return resultNumber;
-    }
-
-    public void setResultNumber(float resultNumber) {
-        this.resultNumber = resultNumber;
-    }
-
-    public float getFirstNumber() {
-        return firstNumber;
-    }
-
-    public void setFirstNumber(float firstNumber) {
-        this.firstNumber = firstNumber;
-    }
-
-    public float getSecondNumber() {
-        return secondNumber;
-    }
-
-    public void setSecondNumber(float secondNumber) {
-        this.secondNumber = secondNumber;
+    public static PlusOperation getPlusOperation() {
+        if (plusOperation == null) {
+            plusOperation = new PlusOperation();
+        }
+        return plusOperation;
     }
 
     public float plus(float firstNumber, float secondNumber) {

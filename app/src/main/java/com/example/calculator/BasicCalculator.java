@@ -32,15 +32,13 @@ public class BasicCalculator extends AppCompatActivity {
     private Button buttonClearAll;
     private TextView tvResult;
     private Calculator calculator;
-    private LineHandler lineHandler;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        calculator = Calculator.getCalculator();
         setContentView(R.layout.activity_basic_calculator);
-        lineHandler = new LineHandler(null, 0);
-        calculator = new Calculator(lineHandler);
         buttonNumberOne = findViewById(R.id.buttonNumberOne);
         buttonNumberTwo = findViewById(R.id.buttonNumberTwo);
         buttonNumberThree = findViewById(R.id.buttonNumberThree);
@@ -127,38 +125,74 @@ public class BasicCalculator extends AppCompatActivity {
 
 
         buttonPlus.setOnClickListener(view -> {
-                    calculations += " + ";
-                    tvResult.setText(calculations);
+                    try {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                            calculations += " + ";
+                            tvResult.setText(calculations);
+                        }
+                    }catch (StringIndexOutOfBoundsException s){
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
 
         buttonMinus.setOnClickListener(view -> {
-                    calculations += " - ";
-                    tvResult.setText(calculations);
+                    try {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                            calculations += " - ";
+                            tvResult.setText(calculations);
+                        }
+                    }catch (StringIndexOutOfBoundsException s){
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
 
         buttonMultiply.setOnClickListener(view -> {
-                    calculations += " * ";
-                    tvResult.setText(calculations);
+                    try {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                            calculations += " * ";
+                            tvResult.setText(calculations);
+                        }
+                    }catch (StringIndexOutOfBoundsException s){
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
 
         buttonDivide.setOnClickListener(view -> {
-                    calculations += " / ";
-                    tvResult.setText(calculations);
+                    try {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                            calculations += " / ";
+                            tvResult.setText(calculations);
+                        }
+                    }catch (StringIndexOutOfBoundsException s){
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
 
         buttonPoint.setOnClickListener(view -> {
-                    calculations += ".";
-                    tvResult.setText(calculations);
+                    try {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                            calculations += ".";
+                            tvResult.setText(calculations);
+                        }
+                    }catch (StringIndexOutOfBoundsException s){
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
 
         buttonPercent.setOnClickListener(view -> {
-                    calculations += " % ";
-                    tvResult.setText(calculations);
+                    try {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                            calculations += " % ";
+                            tvResult.setText(calculations);
+                        }
+                    }catch (StringIndexOutOfBoundsException s){
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
 
@@ -175,8 +209,14 @@ public class BasicCalculator extends AppCompatActivity {
         );
 
         buttonEquals.setOnClickListener(view -> {
-                    calculations = String.valueOf(calculator.calculatorHandleLine(calculations));
-                    tvResult.setText(calculations);
+                    try {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                            calculations = String.valueOf(calculator.calculatorHandleLine(calculations));
+                            tvResult.setText(calculations);
+                        }
+                    }catch (StringIndexOutOfBoundsException s){
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
     }

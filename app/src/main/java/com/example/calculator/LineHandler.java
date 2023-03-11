@@ -3,32 +3,22 @@ package com.example.calculator;
 import java.util.ArrayList;
 
 public class LineHandler {
-    private String lineOfCalculations;
-    private float result;
-    private PlusOperation plusOperation = new PlusOperation(0,0,0);
-    private MinusOperation minusOperation = new MinusOperation(0, 0 , 0);
-    private MultiplyOperation multiplyOperation = new MultiplyOperation(0, 0, 0);
-    private DivideOperation divideOperation = new DivideOperation(0, 0, 0);
+    private static float result;
+    private static PlusOperation plusOperation = PlusOperation.getPlusOperation();
+    private static MinusOperation minusOperation = MinusOperation.getMinusOperation();
+    private static MultiplyOperation multiplyOperation = MultiplyOperation.getMultiplyOperation();
+    private static DivideOperation divideOperation = DivideOperation.getDivideOperation();
+    private static PercentOperation percentOperation = PercentOperation.getPercentOperation();
+    private static LineHandler lineHandler;
 
-    public LineHandler (String lineOfCalculations, float result){
-        this.lineOfCalculations = lineOfCalculations;
-        this.result = result;
+    private LineHandler (){
     }
 
-    public String getLineOfCalculations() {
-        return lineOfCalculations;
-    }
-
-    public float getResult() {
-        return result;
-    }
-
-    public void setResult(float result) {
-        this.result = result;
-    }
-
-    public void setLineOfCalculations(String lineOfCalculations) {
-        this.lineOfCalculations = lineOfCalculations;
+    public static LineHandler getLineHandler() {
+        if (lineHandler == null) {
+            lineHandler = new LineHandler();
+        }
+        return lineHandler;
     }
 
     public float handleLine (String lineOfCalculations){
@@ -60,7 +50,7 @@ public class LineHandler {
                 result = divideOperation.divide(nums.get(0), nums.get(1));
                 break;
             case "%":
-                result = nums.get(0) * (nums.get(1) / 100);
+                result = percentOperation.percent(nums.get(0), nums.get(1));
                 break;
         }
         for (int i = 2; i < nums.size(); i++) {
@@ -78,7 +68,7 @@ public class LineHandler {
                     result = divideOperation.divide(result, nums.get(i));
                     break;
                 case "%":
-                    result *= nums.get(i) / 100;
+                    result = percentOperation.percent(result, nums.get(i));
                     break;
             }
             count++;
