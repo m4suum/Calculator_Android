@@ -1,7 +1,6 @@
-package com.example.calculator;
+package com.example.calculator.calculatorlogic;
 
 public class DivideOperation {
-    private static float resultNumber;
     private static DivideOperation divideOperation;
 
     private DivideOperation() {
@@ -13,10 +12,8 @@ public class DivideOperation {
         }
         return divideOperation;
     }
-    public float divide (float firstNumber, float secondNumber){
-        resultNumber = firstNumber / secondNumber;
-        if(secondNumber != 0)
-            return resultNumber;
-        else return 3.1415f;
+
+    public float divide(float firstNumber, float secondNumber) {
+        return firstNumber / secondNumber;
     }
 }

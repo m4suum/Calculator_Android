@@ -1,10 +1,10 @@
-package com.example.calculator;
+package com.example.calculator.calculatorlogic;
 
 public class Calculator {
-    private static LineHandler lineHandler = LineHandler.getLineHandler();
+    private static final LineHandler lineHandler = LineHandler.getLineHandler();
     private static Calculator calculator;
 
-    private Calculator (){;
+    private Calculator (){
     }
 
     public static Calculator getCalculator() {

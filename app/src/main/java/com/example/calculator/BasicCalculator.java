@@ -1,35 +1,17 @@
 package com.example.calculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.calculator.calculatorlogic.Calculator;
+
 public class BasicCalculator extends AppCompatActivity {
     private String calculations;
-    private Button buttonNumberOne;
-    private Button buttonNumberTwo;
-    private Button buttonNumberThree;
-    private Button buttonNumberFour;
-    private Button buttonNumberFive;
-    private Button buttonNumberSix;
-    private Button buttonNumberSeven;
-    private Button buttonNumberEight;
-    private Button buttonNumberNine;
-    private Button buttonNumberZero;
-    private Button buttonPlus;
-    private Button buttonMinus;
-    private Button buttonMultiply;
-    private Button buttonDivide;
-    private Button buttonEquals;
-    private Button buttonPoint;
-    private Button buttonOpenCalculatorPro;
-    private Button buttonPercent;
-    private Button buttonClear;
-    private Button buttonClearAll;
+    private final String key = "KEFTEME_CALCULATOR";
     private TextView tvResult;
     private Calculator calculator;
 
@@ -39,26 +21,26 @@ public class BasicCalculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         calculator = Calculator.getCalculator();
         setContentView(R.layout.activity_basic_calculator);
-        buttonNumberOne = findViewById(R.id.buttonNumberOne);
-        buttonNumberTwo = findViewById(R.id.buttonNumberTwo);
-        buttonNumberThree = findViewById(R.id.buttonNumberThree);
-        buttonNumberFour = findViewById(R.id.buttonNumberFour);
-        buttonNumberFive = findViewById(R.id.buttonNumberFive);
-        buttonNumberSix = findViewById(R.id.buttonNumberSix);
-        buttonNumberSeven = findViewById(R.id.buttonNumberSeven);
-        buttonNumberEight = findViewById(R.id.buttonNumberEight);
-        buttonNumberNine = findViewById(R.id.buttonNumberNine);
-        buttonNumberZero = findViewById(R.id.buttonNumberZero);
-        buttonPlus = findViewById(R.id.buttonPlus);
-        buttonMinus = findViewById(R.id.buttonMinus);
-        buttonMultiply = findViewById(R.id.buttonMultiply);
-        buttonDivide = findViewById(R.id.buttonDivide);
-        buttonEquals = findViewById(R.id.buttonEquals);
-        buttonPoint = findViewById(R.id.buttonPoint);
-        buttonOpenCalculatorPro = findViewById(R.id.buttonOpenCalculatorPro);
-        buttonPercent = findViewById(R.id.buttonPercent);
-        buttonClear = findViewById(R.id.buttonClear);
-        buttonClearAll = findViewById(R.id.buttonClearAll);
+        Button buttonNumberOne = findViewById(R.id.buttonNumberOne);
+        Button buttonNumberTwo = findViewById(R.id.buttonNumberTwo);
+        Button buttonNumberThree = findViewById(R.id.buttonNumberThree);
+        Button buttonNumberFour = findViewById(R.id.buttonNumberFour);
+        Button buttonNumberFive = findViewById(R.id.buttonNumberFive);
+        Button buttonNumberSix = findViewById(R.id.buttonNumberSix);
+        Button buttonNumberSeven = findViewById(R.id.buttonNumberSeven);
+        Button buttonNumberEight = findViewById(R.id.buttonNumberEight);
+        Button buttonNumberNine = findViewById(R.id.buttonNumberNine);
+        Button buttonNumberZero = findViewById(R.id.buttonNumberZero);
+        Button buttonPlus = findViewById(R.id.buttonPlus);
+        Button buttonMinus = findViewById(R.id.buttonMinus);
+        Button buttonMultiply = findViewById(R.id.buttonMultiply);
+        Button buttonDivide = findViewById(R.id.buttonDivide);
+        Button buttonEquals = findViewById(R.id.buttonEquals);
+        Button buttonPoint = findViewById(R.id.buttonPoint);
+        Button buttonOpenCalculatorPro = findViewById(R.id.buttonOpenCalculatorPro);
+        Button buttonPercent = findViewById(R.id.buttonPercent);
+        Button buttonClear = findViewById(R.id.buttonClear);
+        Button buttonClearAll = findViewById(R.id.buttonClearAll);
         tvResult = findViewById(R.id.tvResult);
         tvResult.setText("");
         calculations = "";
@@ -130,7 +112,7 @@ public class BasicCalculator extends AppCompatActivity {
                             calculations += " + ";
                             tvResult.setText(calculations);
                         }
-                    }catch (StringIndexOutOfBoundsException s){
+                    } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
                     }
                 }
@@ -142,7 +124,7 @@ public class BasicCalculator extends AppCompatActivity {
                             calculations += " - ";
                             tvResult.setText(calculations);
                         }
-                    }catch (StringIndexOutOfBoundsException s){
+                    } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
                     }
                 }
@@ -154,7 +136,7 @@ public class BasicCalculator extends AppCompatActivity {
                             calculations += " * ";
                             tvResult.setText(calculations);
                         }
-                    }catch (StringIndexOutOfBoundsException s){
+                    } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
                     }
                 }
@@ -166,7 +148,7 @@ public class BasicCalculator extends AppCompatActivity {
                             calculations += " / ";
                             tvResult.setText(calculations);
                         }
-                    }catch (StringIndexOutOfBoundsException s){
+                    } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
                     }
                 }
@@ -178,7 +160,7 @@ public class BasicCalculator extends AppCompatActivity {
                             calculations += ".";
                             tvResult.setText(calculations);
                         }
-                    }catch (StringIndexOutOfBoundsException s){
+                    } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
                     }
                 }
@@ -190,15 +172,19 @@ public class BasicCalculator extends AppCompatActivity {
                             calculations += " % ";
                             tvResult.setText(calculations);
                         }
-                    }catch (StringIndexOutOfBoundsException s){
+                    } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
                     }
                 }
         );
 
         buttonClear.setOnClickListener(view -> {
-                    calculations = calculations.substring(0, calculations.length() - 1);
-                    tvResult.setText(calculations);
+                    try {
+                        calculations = calculations.substring(0, calculations.length() - 1);
+                        tvResult.setText(calculations);
+                    } catch (StringIndexOutOfBoundsException s) {
+                        System.out.println(s.getMessage());
+                    }
                 }
         );
 
@@ -211,13 +197,21 @@ public class BasicCalculator extends AppCompatActivity {
         buttonEquals.setOnClickListener(view -> {
                     try {
                         if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
-                            calculations = String.valueOf(calculator.calculatorHandleLine(calculations));
+                            calculations = String.valueOf(calculator.calculatorHandleLine(calculations)).replaceAll("\\.?0*$", "");
                             tvResult.setText(calculations);
                         }
-                    }catch (StringIndexOutOfBoundsException s){
+                    } catch (IndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
                     }
                 }
         );
+
+        buttonOpenCalculatorPro.setOnClickListener(view -> {
+            Intent intent = new Intent(this, EngineeringCalculator.class);
+            startActivity(intent);
+            intent.putExtra(key, calculations);
+        });
+        String ecCalculations = getIntent().getStringExtra(key);
+        tvResult.setText(ecCalculations);
     }
 }

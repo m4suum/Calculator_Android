@@ -1,7 +1,6 @@
-package com.example.calculator;
+package com.example.calculator.calculatorlogic;
 
 public class PercentOperation {
-    private static float resultNumber;
     private static PercentOperation percentOperation;
 
     private PercentOperation() {
@@ -15,7 +14,6 @@ public class PercentOperation {
     }
 
     public float percent(float firstNumber, float secondNumber) {
-        resultNumber = firstNumber * (secondNumber/100);
-        return resultNumber;
+        return firstNumber * (secondNumber / 100);
     }
 }

@@ -1,7 +1,6 @@
-package com.example.calculator;
+package com.example.calculator.calculatorlogic;
 
 public class MultiplyOperation {
-    private static float resultNumber;
     private static MultiplyOperation multiplyOperation;
 
     private MultiplyOperation() {
@@ -13,8 +12,8 @@ public class MultiplyOperation {
         }
         return multiplyOperation;
     }
+
     public float multiply(float firstNumber, float secondNumber) {
-        resultNumber = firstNumber * secondNumber;
-        return resultNumber;
+        return firstNumber * secondNumber;
     }
 }

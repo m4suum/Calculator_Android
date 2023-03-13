@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/layout_background"
-    tools:context=".BasicCalculator">
+    tools:context=".EngineeringCalculator">
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvResult"
+        android:id="@+id/tvResultEngineer"
         style="@style/tvResult"
         android:layout_width="@dimen/tvResultWidth"
         android:layout_height="@dimen/tvResultHeight"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/llMainLayout"
+        android:id="@+id/llMainLayoutEngineer"
         android:layout_width="@dimen/llMainLayoutWidth"
         android:layout_height="@dimen/llMainLayoutHeight"
         android:layout_margin="8dp"
@@ -29,17 +29,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResult">
+        app:layout_constraintTop_toBottomOf="@+id/tvResultEngineer">
 
         <LinearLayout
-            android:id="@+id/llFirstLine"
+            android:id="@+id/llFirstLineEngineer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberOne"
+                android:id="@+id/buttonNumberOneEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberTwo"
+                android:id="@+id/buttonNumberTwoEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberThree"
+                android:id="@+id/buttonNumberThreeEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -69,7 +69,17 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonEquals"
+                android:id="@+id/buttonDegree"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/degree"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonEqualsEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -80,14 +90,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llSecondLine"
+            android:id="@+id/llSecondLineEngineer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberFour"
+                android:id="@+id/buttonNumberFourEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -97,7 +107,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberFive"
+                android:id="@+id/buttonNumberFiveEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -107,7 +117,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberSix"
+                android:id="@+id/buttonNumberSixEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -117,7 +127,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonPlus"
+                android:id="@+id/buttonPlusEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -129,14 +139,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llThirdLine"
+            android:id="@+id/llThirdLineEngineer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberSeven"
+                android:id="@+id/buttonNumberSevenEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -146,7 +156,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberEight"
+                android:id="@+id/buttonNumberEightEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -156,7 +166,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberNine"
+                android:id="@+id/buttonNumberNineEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -166,7 +176,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonMinus"
+                android:id="@+id/buttonMinusEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -178,13 +188,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llFourthLine"
+            android:id="@+id/llFourthLineEngineer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberZero"
+                android:id="@+id/buttonNumberZeroEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -194,7 +204,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonPoint"
+                android:id="@+id/buttonPointEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -204,7 +214,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonDivide"
+                android:id="@+id/buttonDivideEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -214,7 +224,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonMultiply"
+                android:id="@+id/buttonMultiplyEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -226,13 +236,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llFifthLine"
+            android:id="@+id/llFifthLineEngineer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonOpenCalculatorPro"
+                android:id="@+id/buttonOpenBasicCalculator"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -242,7 +252,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonPercent"
+                android:id="@+id/buttonPercentEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -252,7 +262,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonClear"
+                android:id="@+id/buttonClearEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"
@@ -262,7 +272,7 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonClearAll"
+                android:id="@+id/buttonClearAllEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
                 android:layout_height="wrap_content"

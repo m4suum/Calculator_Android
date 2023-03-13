@@ -1,7 +1,6 @@
-package com.example.calculator;
+package com.example.calculator.calculatorlogic;
 
 public class MinusOperation {
-    private static float resultNumber;
     private static MinusOperation minusOperation;
 
     private MinusOperation() {
@@ -15,7 +14,6 @@ public class MinusOperation {
     }
 
     public float minus(float firstNumber, float secondNumber) {
-        resultNumber = firstNumber - secondNumber;
-        return resultNumber;
+        return firstNumber - secondNumber;
     }
 }
