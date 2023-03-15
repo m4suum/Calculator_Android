@@ -238,7 +238,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/open_calculator_pro"
+                android:text="@string/open_engineer_calculator"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton

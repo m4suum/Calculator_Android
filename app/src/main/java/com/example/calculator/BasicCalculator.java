@@ -108,7 +108,7 @@ public class BasicCalculator extends AppCompatActivity {
 
         buttonPlus.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " + ";
                             tvResult.setText(calculations);
                         }
@@ -120,7 +120,7 @@ public class BasicCalculator extends AppCompatActivity {
 
         buttonMinus.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " - ";
                             tvResult.setText(calculations);
                         }
@@ -132,7 +132,7 @@ public class BasicCalculator extends AppCompatActivity {
 
         buttonMultiply.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " * ";
                             tvResult.setText(calculations);
                         }
@@ -144,7 +144,7 @@ public class BasicCalculator extends AppCompatActivity {
 
         buttonDivide.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " / ";
                             tvResult.setText(calculations);
                         }
@@ -156,9 +156,20 @@ public class BasicCalculator extends AppCompatActivity {
 
         buttonPoint.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
-                            calculations += ".";
-                            tvResult.setText(calculations);
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                            boolean havePoint = false;
+                            for (int i = calculations.length() - 1; i >= 0; i--) {
+                                if (calculations.charAt(i) == '.') {
+                                    havePoint = true;
+                                    break;
+                                } else if (calculations.charAt(i) == ' ') {
+                                    break;
+                                }
+                            }
+                            if (!havePoint) {
+                                calculations += ".";
+                                tvResult.setText(calculations);
+                            }
                         }
                     } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
@@ -168,8 +179,8 @@ public class BasicCalculator extends AppCompatActivity {
 
         buttonPercent.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
-                            calculations += " % ";
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                            calculations += " %";
                             tvResult.setText(calculations);
                         }
                     } catch (StringIndexOutOfBoundsException s) {
@@ -208,10 +219,13 @@ public class BasicCalculator extends AppCompatActivity {
 
         buttonOpenCalculatorPro.setOnClickListener(view -> {
             Intent intent = new Intent(this, EngineeringCalculator.class);
-            startActivity(intent);
             intent.putExtra(key, calculations);
+            startActivity(intent);
+            finish();
+
         });
         String ecCalculations = getIntent().getStringExtra(key);
-        tvResult.setText(ecCalculations);
+        if (ecCalculations != null) calculations = ecCalculations;
+        tvResult.setText(calculations);
     }
 }

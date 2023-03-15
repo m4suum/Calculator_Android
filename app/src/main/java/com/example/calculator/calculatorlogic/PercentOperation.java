@@ -13,7 +13,7 @@ public class PercentOperation {
         return percentOperation;
     }
 
-    public float percent(float firstNumber, float secondNumber) {
-        return firstNumber * (secondNumber / 100);
+    public float percent(float number) {
+        return number / 100;
     }
 }

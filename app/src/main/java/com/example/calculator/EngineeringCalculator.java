@@ -42,6 +42,10 @@ public class EngineeringCalculator extends AppCompatActivity {
         Button buttonClearEngineer = findViewById(R.id.buttonClearEngineer);
         Button buttonClearAllEngineer = findViewById(R.id.buttonClearAllEngineer);
         Button buttonDegree = findViewById(R.id.buttonDegree);
+        Button buttonRoot = findViewById(R.id.buttonRoot);
+        Button buttonFactorial = findViewById(R.id.buttonFactorial);
+        Button buttonSin = findViewById(R.id.buttonSin);
+        Button buttonCos = findViewById(R.id.buttonCos);
         tvResultEngineer = findViewById(R.id.tvResultEngineer);
         tvResultEngineer.setText("");
         calculations = "";
@@ -109,7 +113,7 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonPlusEngineer.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " + ";
                             tvResultEngineer.setText(calculations);
                         }
@@ -121,7 +125,7 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonMinusEngineer.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " - ";
                             tvResultEngineer.setText(calculations);
                         }
@@ -133,7 +137,7 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonMultiplyEngineer.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " * ";
                             tvResultEngineer.setText(calculations);
                         }
@@ -145,7 +149,7 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonDivideEngineer.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                             calculations += " / ";
                             tvResultEngineer.setText(calculations);
                         }
@@ -157,9 +161,20 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonPointEngineer.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
-                            calculations += ".";
-                            tvResultEngineer.setText(calculations);
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                            boolean havePoint = false;
+                            for (int i = calculations.length() - 1; i >= 0; i--) {
+                                if (calculations.charAt(i) == '.') {
+                                    havePoint = true;
+                                    break;
+                                } else if (calculations.charAt(i) == ' ') {
+                                    break;
+                                }
+                            }
+                            if (!havePoint) {
+                                calculations += ".";
+                                tvResultEngineer.setText(calculations);
+                            }
                         }
                     } catch (StringIndexOutOfBoundsException s) {
                         System.out.println(s.getMessage());
@@ -169,8 +184,8 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonPercentEngineer.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
-                            calculations += " % ";
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                            calculations += " %";
                             tvResultEngineer.setText(calculations);
                         }
                     } catch (StringIndexOutOfBoundsException s) {
@@ -197,8 +212,8 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonEqualsEngineer.setOnClickListener(view -> {
                     try {
-                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
-                            calculations = String.valueOf(calculator.calculatorHandleLine(calculations)).replaceAll("\\.?0*$", "");
+                        if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                            calculations = calculator.calculatorHandleLine(calculations).replaceAll("\\.?0*$", "");
                             tvResultEngineer.setText(calculations);
                         }
                     } catch (IndexOutOfBoundsException s) {
@@ -209,16 +224,63 @@ public class EngineeringCalculator extends AppCompatActivity {
 
         buttonOpenBasicCalculator.setOnClickListener(view -> {
             Intent intent = new Intent(this, BasicCalculator.class);
-            startActivity(intent);
             intent.putExtra(key, calculations);
+            startActivity(intent);
+            finish();
         });
         String bcCalculations = getIntent().getStringExtra(key);
-        tvResultEngineer.setText(bcCalculations);
+        if (bcCalculations != null) calculations = bcCalculations;
+        tvResultEngineer.setText(calculations);
 
         buttonDegree.setOnClickListener(view -> {
             try {
-                if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
+                if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
                     calculations += " ^ ";
+                    tvResultEngineer.setText(calculations);
+                }
+            } catch (StringIndexOutOfBoundsException s) {
+                System.out.println(s.getMessage());
+            }
+        });
+
+        buttonRoot.setOnClickListener(view -> {
+            try {
+                if (calculations.equals("") || (!calculations.substring(calculations.length() - 1).chars().allMatch(Character::isDigit) && calculations.charAt(calculations.length() - 2) != '√' && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s"))) {
+                    calculations += "√ ";
+                    tvResultEngineer.setText(calculations);
+                }
+            } catch (StringIndexOutOfBoundsException s) {
+                System.out.println(s.getMessage());
+            }
+        });
+
+
+        buttonFactorial.setOnClickListener(view -> {
+            try {
+                if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                    calculations += " !";
+                    tvResultEngineer.setText(calculations);
+                }
+            } catch (StringIndexOutOfBoundsException s) {
+                System.out.println(s.getMessage());
+            }
+        });
+
+        buttonSin.setOnClickListener(view -> {
+            try {
+                if (calculations.equals("") || !calculations.chars().allMatch(Character::isDigit) && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                    calculations += "sin ";
+                    tvResultEngineer.setText(calculations);
+                }
+            } catch (StringIndexOutOfBoundsException s) {
+                System.out.println(s.getMessage());
+            }
+        });
+
+        buttonCos.setOnClickListener(view -> {
+            try {
+                if (calculations.equals("") || !calculations.chars().allMatch(Character::isDigit) && !calculations.substring(calculations.length() - 1).equals(".") && !calculations.substring(calculations.length() - 1).equals("+") && !calculations.substring(calculations.length() - 1).equals("-") && !calculations.substring(calculations.length() - 1).equals("*") && !calculations.substring(calculations.length() - 1).equals("/") && !calculations.substring(calculations.length() - 1).equals("^") && !calculations.substring(calculations.length() - 1).equals("√") && !calculations.substring(calculations.length() - 1).equals("!") && !calculations.substring(calculations.length() - 1).equals("n") && !calculations.substring(calculations.length() - 1).equals("s")) {
+                    calculations += "cos ";
                     tvResultEngineer.setText(calculations);
                 }
             } catch (StringIndexOutOfBoundsException s) {

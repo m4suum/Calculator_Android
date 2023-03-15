@@ -1,6 +1,7 @@
 package com.example.calculator.calculatorlogic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LineHandler {
     private static final PlusOperation plusOperation = PlusOperation.getPlusOperation();
@@ -9,6 +10,10 @@ public class LineHandler {
     private static final DivideOperation divideOperation = DivideOperation.getDivideOperation();
     private static final PercentOperation percentOperation = PercentOperation.getPercentOperation();
     private static final DegreeOperation degreeOperation = DegreeOperation.getDegreeOperation();
+    private static final RootOperation rootOperation = RootOperation.getRootOperation();
+    private static final FactorialOperation factorialOperation = FactorialOperation.getFactorialOperation();
+    private static final SineOperation sineOperation = SineOperation.getSineOperation();
+    private static final CosineOperation cosineOperation = CosineOperation.getCosineOperation();
     private static LineHandler lineHandler;
 
     private LineHandler() {
@@ -21,61 +26,80 @@ public class LineHandler {
         return lineHandler;
     }
 
-    public float handleLine(String lineOfCalculations) {
-        float result = 0;
-        int count = 1;
-        String[] strings = lineOfCalculations.split(" ");
-        ArrayList<Float> numbers = new ArrayList<>();
-        ArrayList<String> operations = new ArrayList<>();
-        for (String element : strings) {
-            if (element.equals("+") || element.equals("-") || element.equals("*") || element.equals("/") || element.equals("%") || element.equals("^"))
-                operations.add(element);
-            else numbers.add(Float.valueOf(element));
+    public String handleLine(String lineOfCalculations) {
+        float firstResult;
+        ArrayList<String> strings = new ArrayList<>(Arrays.asList(lineOfCalculations.split(" ")));
+
+        for (int i = strings.size() - 1; i >= 0; i--) {
+            switch (strings.get(i)) {
+                case "sin" -> {
+                    firstResult = sineOperation.sin(Float.parseFloat(strings.get(i + 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i + 1);
+                }
+                case "cos" -> {
+                    firstResult = cosineOperation.cos(Float.parseFloat(strings.get(i + 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i + 1);
+                }
+                case "√" -> {
+                    firstResult = rootOperation.root(Float.parseFloat(strings.get(i + 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i + 1);
+                }
+                case "!" -> {
+                    firstResult = factorialOperation.factorial(Float.parseFloat(strings.get(i - 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i - 1);
+                }
+                case "%" -> {
+                    firstResult = percentOperation.percent(Float.parseFloat(strings.get(i - 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i - 1);
+                }
+            }
         }
 
-        switch (operations.get(0)) {
-            case "+":
-                result = plusOperation.plus(numbers.get(0), numbers.get(1));
-                break;
-            case "-":
-                result = minusOperation.minus(numbers.get(0), numbers.get(1));
-                break;
-            case "*":
-                result = multiplyOperation.multiply(numbers.get(0), numbers.get(1));
-                break;
-            case "/":
-                result = divideOperation.divide(numbers.get(0), numbers.get(1));
-                break;
-            case "%":
-                result = percentOperation.percent(numbers.get(0), numbers.get(1));
-                break;
-            case "^":
-                result = degreeOperation.degree(numbers.get(0), numbers.get(1));
-                break;
-        }
-        for (int i = 2; i < numbers.size(); i++) {
-            switch (operations.get(count)) {
-                case "+":
-                    result = plusOperation.plus(result, numbers.get(i));
-                    break;
-                case "-":
-                    result = minusOperation.minus(result, numbers.get(i));
-                    break;
-                case "*":
-                    result = multiplyOperation.multiply(result, numbers.get(i));
-                    break;
-                case "/":
-                    result = divideOperation.divide(result, numbers.get(i));
-                    break;
-                case "%":
-                    result = percentOperation.percent(result, numbers.get(i));
-                    break;
-                case "^":
-                    result = degreeOperation.degree(result, numbers.get(i));
-                    break;
+        for (int i = strings.size() - 1; i >= 0; i--) {
+            switch (strings.get(i)) {
+                case "*" -> {
+                    firstResult = multiplyOperation.multiply(Float.parseFloat(strings.get(i + 1)), Float.parseFloat(strings.get(i - 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i + 1);
+                    strings.remove(i - 1);
+                }
+                case "/" -> {
+                    firstResult = divideOperation.divide(Float.parseFloat(strings.get(i - 1)), Float.parseFloat(strings.get(i + 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i + 1);
+                    strings.remove(i - 1);
+                }
+                case "^" -> {
+                    firstResult = degreeOperation.degree(Float.parseFloat(strings.get(i - 1)), Float.parseFloat(strings.get(i + 1)));
+                    strings.remove(i);
+                    strings.add(i, String.valueOf(firstResult));
+                    strings.remove(i + 1);
+                    strings.remove(i - 1);
+                }
             }
-            count++;
         }
-        return result;
+
+        float finalResult = Float.parseFloat(strings.get(0));
+        for (int i = 0; i < strings.size() - 1; i++) {
+            switch (strings.get(i)) {
+                case "+" ->
+                        finalResult = plusOperation.plus(finalResult, Float.parseFloat(strings.get(i + 1)));
+                case "-" ->
+                        finalResult = minusOperation.minus(finalResult, Float.parseFloat(strings.get(i + 1)));
+            }
+        }
+        return String.valueOf(finalResult);
     }
 }

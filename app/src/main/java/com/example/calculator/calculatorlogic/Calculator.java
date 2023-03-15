@@ -4,7 +4,7 @@ public class Calculator {
     private static final LineHandler lineHandler = LineHandler.getLineHandler();
     private static Calculator calculator;
 
-    private Calculator (){
+    private Calculator() {
     }
 
     public static Calculator getCalculator() {
@@ -14,7 +14,7 @@ public class Calculator {
         return calculator;
     }
 
-    public float calculatorHandleLine(String calculations){
+    public String calculatorHandleLine(String calculations) {
         return lineHandler.handleLine(calculations);
     }
 }

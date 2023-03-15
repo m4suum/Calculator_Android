@@ -16,9 +16,14 @@
     <string name="divide"> / </string>
     <string name="equals">=</string>
     <string name="point">.</string>
-    <string name="open_calculator_pro">Pro</string>
+    <string name="open_engineer_calculator">EC</string>
+    <string name="open_base_calculator">BC</string>
     <string name="percent"> % </string>
     <string name="clear">C</string>
     <string name="clear_all">CA</string>
     <string name="degree">^</string>
+    <string name="root">√</string>
+    <string name="factorial">X!</string>
+    <string name="cos">CS</string>
+    <string name="sin">SN</string>
 </resources>

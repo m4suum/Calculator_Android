@@ -127,6 +127,16 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonRoot"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/root"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonPlusEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
@@ -176,6 +186,16 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonFactorial"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/factorial"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonMinusEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
@@ -214,6 +234,16 @@
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonSin"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/sin"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonDivideEngineer"
                 style="@style/buttonNumber"
                 android:layout_width="@dimen/buttonNumberWidth"
@@ -248,7 +278,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/open_calculator_pro"
+                android:text="@string/open_base_calculator"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -259,6 +289,16 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/percent"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonCos"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/cos"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
