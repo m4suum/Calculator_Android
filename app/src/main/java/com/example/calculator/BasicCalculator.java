@@ -208,7 +208,7 @@ public class BasicCalculator extends AppCompatActivity {
         buttonEquals.setOnClickListener(view -> {
                     try {
                         if (!calculations.substring(calculations.length() - 1).equals(" ") && !calculations.substring(calculations.length() - 1).equals(".")) {
-                            calculations = String.valueOf(calculator.calculatorHandleLine(calculations)).replaceAll("\\.?0*$", "");
+                            calculations = calculator.calculatorHandleLine(calculations).replaceAll("\\.?0*$", "");
                             tvResult.setText(calculations);
                         }
                     } catch (IndexOutOfBoundsException s) {
